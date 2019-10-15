@@ -2,8 +2,8 @@
 
 ## This challenge is intended to assess your coding ability in NodeJS.
 
-- You should not spend more than 2.5 - 3 hours on implementing the requirements. (If you wish to you can, but we understand that people have busy lives)
-- The requirements are split into _Essential_ and _Optional_. Only solutions with all essential requirements complete will be considered. You can implement as many of the optional requirements as you wish.
+- You should not spend more than 2.5 - 3 hours on implementing the requirements. (If you want to spend more time, but we understand that people have busy lives)
+- You should include 
 
 ## Prerequisites
 
@@ -17,18 +17,32 @@ From the root directory there are a few commands that you can run
 
 ## Project Background
 
-This project contains the beginnings of a rather simple REST api.
+This project contains the beginnings of a simple REST api.
 
-It consists of an SQLite database with two tables (Sites, Devices), and a simple webserver that currently exposes three endpoints.
+It consists of an SQLite database with two tables (Sites, Devices), and a simple webserver that currently exposes three RESTful endpoints.
 
-You will be expected to implement some new functionality, and ensure this new functionality is tested.
+You are expected to implement some new functionality, and ensure this new functionality is tested.
 
-## Essential Requirements
+## Requirements
 
-...
+- Add an endpoint to retrieve a specific site and related devices by a given site id.
+- Add an endpoint to retreve all active devices.
+- Update all endpoints & verify that the parameters are of the correct type & valid.
 
+If you can think of any other changes that would improve the project, feel free to document or implement them.
 
-## Optional Requirements
+## Project Overview
 
-...
+### Applicaton Codebase
 
+- src/index.js
+    This file initalises the webserver and database and starts the server listening on localhost:3000
+- src/lib/Database.js
+    This file is responsible for initalising the database & ensuring migrations are applied.
+
+### Testware
+
+- test/util/httpClient.js
+    This file exposes a utility for making HTTP requests to the API when running your tests.
+- test/tests/*.spec.js
+    These files contain the integration tests for the implemented REST endpoints.
