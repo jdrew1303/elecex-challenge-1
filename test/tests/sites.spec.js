@@ -10,7 +10,7 @@ const expect = require('chai').expect;
 const httpClient = require('../util/httpClient');
 const Database = require('../../src/lib/Database');
 
-describe('/devices', function () {
+describe('/sites', function () {
     beforeEach('DB Setup', function () {
         const database = new Database();
         return database.init();
