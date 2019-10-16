@@ -6,7 +6,7 @@ If at any point you have questions concerning the coding challenge and/or interv
 
 This challenge is intended to assess your coding ability in NodeJS.
 
-You should not spend more than 2.5 - 3 hours on implementing the requirements.
+We expect that this challenge should not take you longer than 2 hours, but you are free to take as long as you need.
 
 ## Prerequisites
 
