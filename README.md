@@ -4,10 +4,9 @@ Thank you for your interest in working at Electricity Exchange. Before we procee
 
 If at any point you have questions concerning the coding challenge and/or interview process, please do not hesitate to email developers@electricityexchange.ie
 
-## This challenge is intended to assess your coding ability in NodeJS.
+This challenge is intended to assess your coding ability in NodeJS.
 
-- You should not spend more than 2.5 - 3 hours on implementing the requirements. (If you want to spend more time, but we understand that people have busy lives)
-- You should include 
+You should not spend more than 2.5 - 3 hours on implementing the requirements.
 
 ## Prerequisites
 
