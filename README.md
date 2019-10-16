@@ -15,7 +15,9 @@ You should not spend more than 2.5 - 3 hours on implementing the requirements.
 ## Available Commands
 
 From the root directory there are a few commands that you can run
-- _npm start_ - Run the project
+
+- _npm install_ - Install all dependencies.
+- _npm start_ - Run the project.
 - _npm run test_ - Run the test suite.
 
 ## Project Background
