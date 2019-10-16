@@ -18,7 +18,7 @@ From the root directory there are a few commands that you can run
 
 - _npm install_ - Install all dependencies.
 - _npm start_ - Run the project.
-- _npm run test_ - Run the test suite.
+- _npm run test_ - Run the test suite (in order to run the test suite you will need to have the application running already).
 
 ## Project Background
 
@@ -47,12 +47,12 @@ Your submission will be reviewed on the following points:
 
 ## Project Overview
 
-### Applicaton Codebase
+### Application Codebase
 
 - src/index.js
-    This file initalises the webserver and database and starts the server listening on localhost:3000
+    This file initialises the webserver and database and starts the server listening on localhost:3000
 - src/lib/Database.js
-    This file is responsible for initalising the database & ensuring migrations are applied.
+    This file is responsible for initialising the database & ensuring migrations are applied.
 
 ### Testware
 
@@ -61,7 +61,7 @@ Your submission will be reviewed on the following points:
 - test/tests/*.spec.js
     These files contain the integration tests for the implemented REST endpoints.
 
-# Submission
+## Submission
 
 To submit your coding challenge, commit all your changes to the `master` branch and run the following command:
 
