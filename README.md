@@ -32,7 +32,7 @@ You are expected to implement some new functionality, and ensure this new functi
 
 - Implement the endpoint that will make the tests defined in `test/tests/sites.spec.js` pass.
 - Add an endpoint to retrieve all active devices.
-- Update all endpoints & verify that the parameters are of the correct type & valid, adding tests you feel are appropriate.
+- Update all new and existing endpoints to verify that parameters received are of the correct type & valid, adding any tests you feel are appropriate.
 
 If you can think of any other changes that would improve the project, feel free to outline them in the improvements.txt file in this repo.
 
