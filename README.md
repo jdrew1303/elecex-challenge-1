@@ -1,5 +1,9 @@
 # Elecex Coding Challenge 1
 
+Thank you for your interest in working at Electricity Exchange. Before we proceed with more formal interviews, we ask that all candidates submit a coding challenge. The coding challenge is a foundational piece of our process and it's referenced later in our process during the technical interviews.
+
+If at any point you have questions concerning the coding challenge and/or interview process, please do not hesitate to email developers@electricityexchange.ie
+
 ## This challenge is intended to assess your coding ability in NodeJS.
 
 - You should not spend more than 2.5 - 3 hours on implementing the requirements. (If you want to spend more time, but we understand that people have busy lives)
@@ -55,3 +59,13 @@ Your submission will be reviewed on the following points:
     This file exposes a utility for making HTTP requests to the API when running your tests.
 - test/tests/*.spec.js
     These files contain the integration tests for the implemented REST endpoints.
+
+# Submission
+
+To submit your coding challenge, commit all your changes to the `master` branch and run the following command:
+
+```git bundle create coding-challenge.bundle HEAD master```
+
+Email the the generated coding-challenge.bundle file to developers@electricityexchange.ie. We do our best to review and respond to submissions within 1-2 business days.
+
+Thanks for taking the time to do this coding challenge and here's hoping we talk soon!
