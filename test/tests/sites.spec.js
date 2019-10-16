@@ -1,0 +1,38 @@
+/* eslint-env mocha */
+/* eslint-env chai */
+/* eslint-disable prefer-arrow-callback */
+/* eslint-disable no-console */
+
+'use strict';
+
+const expect = require('chai').expect;
+
+const httpClient = require('../util/httpClient');
+const Database = require('../../src/lib/Database');
+
+describe('/devices', function () {
+    beforeEach('DB Setup', function () {
+        const database = new Database();
+        return database.init();
+    });
+
+    describe('GET /sites/:id', function () {
+        it('GET /sites/:id should return a single site with related devices object', function () {
+            return httpClient.get('http://localhost:3000/sites/1')
+                .then((fullResponse) => {
+                    expect(fullResponse.statusCode).to.equal(200);
+                    const site = fullResponse.body;
+                    expect(site).to.be.an('object');
+                    expect(site.name).to.equal('Site 1');
+
+                    expect(site.devices).to.be.an('array');
+                    expect(site.devices.length).to.equal(2);
+
+                    expect(site.devices[0].name).to.equal('Device 1');
+                    expect(site.devices[0].active).to.equal(1);
+                    expect(site.devices[1].name).to.equal('Device 2');
+                    expect(site.devices[1].active).to.equal(0);
+                });
+        });
+    });
+});

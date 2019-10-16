@@ -11,11 +11,9 @@ const httpClient = require('../util/httpClient');
 const Database = require('../../src/lib/Database');
 
 describe('/devices', function () {
-    beforeEach('DB Setup', function (done) {
+    beforeEach('DB Setup', function () {
         const database = new Database();
-        database.init()
-            .then(() => done())
-            .catch(() => done());
+        return database.init();
     });
 
     describe('GET /devices', function () {
