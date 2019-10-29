@@ -67,6 +67,6 @@ To submit your coding challenge, commit all your changes to the `master` branch 
 
 ```git bundle create coding-challenge.bundle HEAD master```
 
-Email the the generated coding-challenge.bundle file to developers@electricityexchange.ie. We do our best to review and respond to submissions within 1-2 business days.
+Visit the form located [here](https://forms.gle/ziwV735H5nivtP4t9) to submit your ```coding-challenge.bundle``` file. We do our best to review and respond to submissions within 5 business days.
 
 Thanks for taking the time to do this coding challenge and here's hoping we talk soon!
