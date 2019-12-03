@@ -18,7 +18,9 @@ From the root directory there are a few commands that you can run
 
 - _npm install_ - Install all dependencies.
 - _npm start_ - Run the project.
-- _npm run test_ - Run the test suite (in order to run the test suite you will need to have the application running already).
+- _npm run test_ - Run the unit and e2e test suites (in order to run the e2e test suite you will need to have the application running already).
+- _npm run test:unit_ - Run the unit tests and prints coverage metrics.
+- _npm run test:e2e_ - Runs the end to end tests (in order to run the test suite you will need to have the application running already).
 
 ## Project Background
 

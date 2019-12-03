@@ -1,46 +1,56 @@
-'use strict';
-
-const express = require('express');
-const bodyParser = require('body-parser');
-
-const Database = require('./lib/Database');
+const express = require("express");
+const bodyParser = require("body-parser");
+const Database = require("./lib/Database");
 
 const setup = async () => {
-    const database = new Database();
-    const db = await database.init()
-        .catch((error) => {
-            console.error(error);
-            process.exit(1);
-        });
+  const db = await new Database().init().catch(error => {
+    console.error(error);
+    process.exit(1);
+  });
 
-    const app = express();
-    app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({ extended: false }));
+  const app = express();
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: false }));
 
-    app.get('/devices', (req, res, next) => {
-        return db.all('SELECT * FROM devices;')
-            .then(devices => res.json(devices))
-            .catch(next);
+  app.set("json spaces", 4);
+
+  const DeviceModel = require("./models/devices")(db);
+  const SiteModel = require("./models/sites")(db);
+
+  require("./api/devices")(app, DeviceModel);
+  require("./api/sites")(app, SiteModel);
+
+  require("./middlewares")(app);
+
+  const server = app
+    .listen(3000, "0.0.0.0", () => {
+      console.info("server listening on port: 3000");
+    })
+    .on("request", req => {
+      console.info(req.method, req.baseUrl + req.url);
+    })
+    .on("error", err => {
+      console.error(err);
     });
 
-    app.get('/devices/:deviceId', (req, res, next) => {
-        return db.get('SELECT * FROM devices WHERE id = ?;', req.params.deviceId)
-            .then(devices => res.json(devices))
-            .catch(next);
+  // the current application as is does not have a clean shutdown (not a big
+  // deal in a toy but a problem in a production application) This will stop
+  // accepting new connections, finish off current connections and then shutdown.
+  // https://www.gnu.org/software/libc/manual/html_node/Termination-Signals.html
+  process.on("SIGTERM", () => {
+    server.close(() => {
+      console.log("Http server pool drained and server is ready for shutdown.");
+      // close db connections here
     });
 
-    app.post('/devices', (req, res, next) => {
-        const newDevice = [req.body.siteId, req.body.name, req.body.active];
-        return db.run('INSERT INTO devices (siteId, name, active) VALUES (?, ?, ?)', newDevice)
-            .then(insertResult => db.get('SELECT * FROM devices WHERE id = ?', insertResult.stmt.lastID))
-            .then(insertedDevice => res.json(insertedDevice))
-            .catch(next);
-    });
-
-    app
-        .listen(3000, '0.0.0.0', () => { console.info('server listening on port: 3000'); })
-        .on('request', (req) => { console.info(req.method, req.baseUrl + req.url); })
-        .on('error', (err) => { console.error(err); });
+    const thirtySeconds = 30 * 1000;
+    setTimeout(function() {
+      console.error(
+        "Could not drain the request pool in time, forcefully shutting down"
+      );
+      process.exit(1);
+    }, thirtySeconds);
+  });
 };
 
 setup();
